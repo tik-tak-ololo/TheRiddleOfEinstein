@@ -92,9 +92,7 @@ func findSoulution(x:Int, y:Int) -> Bool{
     
     for i in 0...4 {
         matrix[x][y] = i
-//        print(matrix[x][y])
         if check(){
-//            printMatrix()
             let newY = (y + 1) % PropertyCount
             let newX = x + (newY != 0 ? 0 : 1)
             if  newX >= HouseCount || findSoulution(x: newX, y: newY){
@@ -104,7 +102,6 @@ func findSoulution(x:Int, y:Int) -> Bool{
         
     }
     
-//    print(matrix)
     matrix[x][y] = tmp
     return false
 }
@@ -116,9 +113,6 @@ func check() -> Bool{
             let property1 = matrix[i][j]
             let z = i + 1
             for k in z..<HouseCount {
-//                if k == i {
-//                    continue
-//                }
                 let property2 = matrix[k][j]
                 if property1 != 5 && property2 != 5 && property1 == property2 {
                     return false
@@ -127,7 +121,6 @@ func check() -> Bool{
         }
     }
     
-//    printMatrix()
     //1) На улице стоят 5 домов
     //Проверять нет смысла, матрица 5*5
     
@@ -145,8 +138,6 @@ func check() -> Bool{
         if matrix[numberHouse][Property.Nationality.rawValue] == Nationalities.Hispanic.rawValue
             && matrix[numberHouse][Property.Pet.rawValue] != 5
             && matrix[numberHouse][Property.Pet.rawValue] != Pets.Dog.rawValue {
-//            printMatrix()
-//            print(matrix)
             return false;
         }
     }
